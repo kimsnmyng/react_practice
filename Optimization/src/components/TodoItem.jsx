@@ -22,15 +22,17 @@ const TodoItem = ({ id, isDone, content, date, onUpdate, onDelete }) => {
 
 
 // 고차 컴포넌트 (HOC)
-export default memo(TodoItem, (prevPops, nextProps) => {
-  // 반환값에 따라, Props가 바뀌었는지 안 바뀌었는지 판단
-  // T => Props 바뀌지 않음 -> 리렌더링 X
-  // F => Props 바뀜 -> 리렌더링 O
+// export default memo(TodoItem, (prevPops, nextProps) => {
+//   // 반환값에 따라, Props가 바뀌었는지 안 바뀌었는지 판단
+//   // T => Props 바뀌지 않음 -> 리렌더링 X
+//   // F => Props 바뀜 -> 리렌더링 O
 
-  if (prevPops.id !== nextProps.id) return false;
-  if (prevPops.isDone !== nextProps.isDone) return false;
-  if (prevPops.content !== nextProps.content) return false;
-  if (prevPops.date !== nextProps.date) return false;
+//   if (prevPops.id !== nextProps.id) return false;
+//   if (prevPops.isDone !== nextProps.isDone) return false;
+//   if (prevPops.content !== nextProps.content) return false;
+//   if (prevPops.date !== nextProps.date) return false;
 
-  return true; // props의 값이 바뀌지 않았고, 리렌더링 하지 말아라.
-});
+//   return true; // props의 값이 바뀌지 않았고, 리렌더링 하지 말아라.
+// });
+
+export default memo(TodoItem);
